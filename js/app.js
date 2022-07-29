@@ -3679,8 +3679,12 @@
             let subtitle = slide.querySelector(".hero-slide__subtitle");
             let oldSubtitle = subtitle.innerHTML;
             let newSubtitle = subtitle.dataset.mobileText;
-            window.addEventListener("resize", (() => {
+            checkSubtitle();
+            function checkSubtitle() {
                 if (window.innerWidth <= 991) subtitle.innerHTML = newSubtitle; else subtitle.innerHTML = oldSubtitle;
+            }
+            window.addEventListener("resize", (() => {
+                checkSubtitle();
             }));
         }));
     }
